@@ -3,222 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurkholik — Software Engineer</title>
+    <title>Nurkholik — Engineering Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #05080f;
-            --accent: #10b981; /* Emerald Green - Terkesan lebih premium & sukses */
-        }
-        body { 
-            background-color: var(--bg); 
-            color: #e2e8f0; 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth; 
-        }
+        :root { --bg: #050810; --accent: #10b981; }
+        body { background-color: var(--bg); color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, .font-heading { font-family: 'Space Grotesk', sans-serif; }
         
-        .premium-border {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.4), rgba(2, 6, 23, 0.8));
-        }
+        .premium-border { border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, rgba(15, 23, 42, 0.4), rgba(2, 6, 23, 0.8)); }
         
-        .project-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
+        /* Modal System for Project Details */
+        #projectModal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(5, 8, 16, 0.95); backdrop-filter: blur(15px); }
+        .modal-content { max-height: 90vh; overflow-y: auto; scrollbar-width: none; }
+        .modal-content::-webkit-scrollbar { display: none; }
+
+        /* Admin Panel Toggle */
+        #adminPanel { display: none; position: fixed; right: 20px; bottom: 20px; z-index: 1000; width: 350px; }
         
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.15);
-        }
-
-        .glow-text:hover {
-            text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-            color: var(--accent);
-        }
-
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 1px;
-            bottom: -4px; left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #05080f; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        .nav-glass { background: rgba(10, 16, 31, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
     </style>
 </head>
-<body class="selection:bg-emerald-500/30 selection:text-emerald-400">
+<body class="selection:bg-emerald-500/30">
 
     <nav class="fixed top-0 w-full z-50 py-6 px-10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center bg-[#0a101f]/80 backdrop-blur-xl border border-white/5 rounded-2xl px-8 py-4 shadow-2xl">
-            <span class="text-xl font-bold tracking-widest font-heading">NUR<span class="text-emerald-500 underline decoration-emerald-500/30">KHOLIK</span></span>
-            <div class="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.2em] font-semibold text-slate-400">
-                <a href="#about" class="nav-link hover:text-white transition">Introduction</a>
-                <a href="#projects" class="nav-link hover:text-white transition">Engineering</a>
-                <a href="#contact" class="nav-link hover:text-white transition">Inquiries</a>
+        <div class="max-w-7xl mx-auto flex justify-between items-center nav-glass rounded-2xl px-8 py-4 shadow-2xl">
+            <span class="text-xl font-bold tracking-widest font-heading text-white">NUR<span class="text-emerald-500">KHOLIK</span></span>
+            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold text-slate-400">
+                <a href="#about" class="hover:text-emerald-400 transition">Introduction</a>
+                <a href="#projects" class="hover:text-emerald-400 transition">Works</a>
+                <button onclick="toggleAdmin()" class="text-emerald-500/50 hover:text-emerald-400 transition"><i class="fas fa-lock text-xs"></i></button>
             </div>
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 relative overflow-hidden">
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/5 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full"></div>
-
-        <div class="relative z-10 text-center">
-            <h2 class="text-emerald-500 font-mono text-sm tracking-[0.4em] uppercase mb-6 opacity-80">Software Architecture & Automation</h2>
-            <h1 class="text-6xl md:text-8xl font-bold mb-8 tracking-tighter leading-none font-heading">
-                Transforming <span class="text-white">Logic</span> <br>
-                Into <span class="italic text-slate-600">Efficiency.</span>
+        <div class="text-center relative z-10">
+            <h2 class="text-emerald-500 font-mono text-xs tracking-[0.5em] uppercase mb-4">Software Engineer Portfolio</h2>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tighter text-white font-heading">
+                Muhammad <br> <span class="text-emerald-500">Nurkholik</span>
             </h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-12">
-                Mahasiswa Teknik Informatika Semester 6 di Universitas Muhammadiyah Tangerang. 
-                Berfokus pada arsitektur backend dan otomasi workflow yang presisi.
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Pemilik dan Pengembang Utama sistem otomasi <b>Motion Core</b>. Spesialisasi dalam arsitektur Backend dan integrasi sistem pembayaran cloud.
             </p>
-            <a href="#projects" class="bg-white text-black px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-emerald-500 hover:text-white transition-all duration-300">
-                Explore Projects
-            </a>
         </div>
     </section>
 
-    <section id="about" class="py-32 px-10 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-20">
-            <div class="lg:col-span-7">
-                <h3 class="text-xs uppercase tracking-[0.5em] text-emerald-500 mb-6 font-bold font-mono">01 // The Engineer</h3>
-                <h2 class="text-4xl md:text-5xl font-bold mb-10 leading-tight font-heading text-white">
-                    Menjembatani sistem manual menuju otomasi cerdas.
-                </h2>
-                <p class="text-slate-400 text-lg leading-relaxed mb-8 text-justify font-light">
-                    Saya percaya bahwa efisiensi adalah bentuk tertinggi dari keindahan teknis. Melalui pemanfaatan <b>Node.js</b> dan <b>Supabase</b>, saya merancang ekosistem digital yang mampu bekerja secara mandiri—mengurangi margin kesalahan manusia dan mempercepat siklus transaksi secara signifikan.
-                </p>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="premium-border p-6 rounded-2xl">
-                        <span class="block text-2xl font-bold text-white mb-2 font-heading">6+</span>
-                        <span class="text-xs uppercase tracking-widest text-slate-500">Current Semester</span>
-                    </div>
-                    <div class="premium-border p-6 rounded-2xl">
-                        <span class="block text-2xl font-bold text-white mb-2 font-heading">Cloud</span>
-                        <span class="text-xs uppercase tracking-widest text-slate-500">Infrastructure</span>
-                    </div>
-                    <div class="premium-border p-6 rounded-2xl">
-                        <span class="block text-2xl font-bold text-white mb-2 font-heading">Real-time</span>
-                        <span class="text-xs uppercase tracking-widest text-slate-500">Database</span>
-                    </div>
+    <section id="projects" class="py-20 px-10 max-w-7xl mx-auto">
+        <div class="mb-16">
+            <h3 class="text-xs uppercase tracking-[0.5em] text-emerald-500 mb-2 font-bold font-mono">01 // Selected Works</h3>
+            <h2 class="text-4xl font-bold text-white font-heading italic underline decoration-emerald-500/20">Featured System</h2>
+        </div>
+
+        <div onclick="openProject()" class="group cursor-pointer premium-border rounded-[2.5rem] overflow-hidden grid md:grid-cols-2 items-center hover:border-emerald-500/50 transition-all duration-500">
+            <div class="p-12 order-2 md:order-1">
+                <div class="flex gap-3 mb-6">
+                    <span class="text-[9px] border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Live System</span>
+                    <span class="text-[9px] border border-white/10 text-slate-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Roblox Automation</span>
                 </div>
+                <h3 class="text-4xl font-bold text-white mb-4 font-heading group-hover:text-emerald-400 transition">Motion Core Ecosystem</h3>
+                <p class="text-slate-400 leading-relaxed mb-8">Sistem e-commerce Discord terotomasi yang terintegrasi dengan QRIS dan Supabase. Klik untuk melihat detail alur kerja.</p>
+                <span class="text-xs font-bold text-emerald-500 tracking-[0.3em] uppercase group-hover:translate-x-2 inline-block transition-transform">View Full Documentation →</span>
             </div>
-            <div class="lg:col-span-5">
-                <div class="premium-border p-10 rounded-[3rem] sticky top-32">
-                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-sm border-b border-white/5 pb-4">Background Info</h4>
-                    <div class="space-y-8">
-                        <div>
-                            <span class="block text-xs text-slate-500 uppercase tracking-widest mb-2">Location</span>
-                            <span class="text-lg text-white font-medium">Tangerang, Banten, ID.</span>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-500 uppercase tracking-widest mb-2">Education</span>
-                            <span class="text-lg text-white font-medium leading-snug">Universitas Muhammadiyah Tangerang</span>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-500 uppercase tracking-widest mb-2">Specialization</span>
-                            <span class="text-emerald-500 font-bold tracking-widest font-mono">BACKEND ARCHITECTURE</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="h-full min-h-[400px] overflow-hidden order-1 md:order-2">
+                <img src="assets/dashboard.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Motion Core">
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-32 bg-white/5 backdrop-blur-sm px-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-                <div class="max-w-2xl">
-                    <h3 class="text-xs uppercase tracking-[0.5em] text-emerald-500 mb-6 font-bold font-mono">02 // Engineering Showcase</h3>
-                    <h2 class="text-5xl font-bold text-white font-heading">Featured Systems.</h2>
-                </div>
+    <div id="projectModal">
+        <div class="modal-content max-w-5xl mx-auto py-20 px-10">
+            <div class="flex justify-between items-center mb-16">
+                <button onclick="closeProject()" class="text-slate-500 hover:text-white transition uppercase tracking-widest text-xs font-bold font-mono">← Back to Portfolio</button>
+                <h2 class="text-2xl font-heading font-bold text-emerald-500">Documentation.</h2>
             </div>
+
+            <h1 class="text-5xl font-heading font-bold text-white mb-10">Motion Core <br> Payment System</h1>
             
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="project-card premium-border rounded-[3rem] group">
-                    <div class="h-[400px] overflow-hidden">
-                        <img src="assets/dashboard.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700" alt="Motion Core System">
-                    </div>
-                    <div class="p-12">
-                        <div class="flex gap-4 mb-6">
-                            <span class="text-[10px] bg-white/5 border border-white/10 px-4 py-1.5 rounded-full uppercase tracking-[0.2em] text-slate-300 font-bold">Node.js</span>
-                            <span class="text-[10px] bg-white/5 border border-white/10 px-4 py-1.5 rounded-full uppercase tracking-[0.2em] text-slate-300 font-bold">Supabase</span>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-6 font-heading">Motion Core Ecosystem</h3>
-                        <p class="text-slate-400 font-light leading-relaxed mb-10 text-lg">
-                            Penyederhanaan sistem perdagangan digital via Discord. Mengintegrasikan API pembayaran QRIS dengan basis data cloud untuk validasi transaksi instan tanpa intervensi manual.
-                        </p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <a href="assets/qris.png" target="_blank" class="flex items-center justify-center gap-3 py-5 bg-white text-black rounded-2xl font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-emerald-500 hover:text-white transition">
-                                View QRIS Flow
-                            </a>
-                            <a href="assets/database.png" target="_blank" class="flex items-center justify-center gap-3 py-5 border border-white/10 text-white rounded-2xl font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-white hover:text-black transition">
-                                Schema Database
-                            </a>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-16 items-start mb-32">
+                <div>
+                    <span class="text-6xl font-heading font-black text-emerald-500/20 mb-4 block">01</span>
+                    <h3 class="text-2xl font-bold text-white mb-4">User Interaction & Interface</h3>
+                    <p class="text-slate-400 leading-relaxed">Pengguna memulai interaksi melalui menu dropdown di Discord. UI dirancang minimalis menggunakan tombol (Buttons) dan menu (Select Menus) untuk mengurangi beban input manual.</p>
                 </div>
+                <div class="premium-border p-2 rounded-3xl">
+                    <img src="assets/menu.png" class="rounded-2xl w-full shadow-2xl" alt="Menu UI">
+                </div>
+            </div>
 
-                <div class="flex flex-col justify-center items-center premium-border rounded-[3rem] p-20 border-dashed opacity-40 hover:opacity-100 transition duration-500">
-                    <div class="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mb-8">
-                        <i class="fas fa-plus text-emerald-500 text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white uppercase tracking-widest font-heading">Project 02</h4>
-                    <p class="text-slate-500 mt-4 text-center font-light uppercase tracking-tighter italic">"Engineering the future..."</p>
+            <div class="grid md:grid-cols-2 gap-16 items-start mb-32">
+                <div class="premium-border p-2 rounded-3xl order-2 md:order-1">
+                    <img src="assets/modal.png" class="rounded-2xl w-full shadow-2xl" alt="Input Form">
+                </div>
+                <div class="order-1 md:order-2">
+                    <span class="text-6xl font-heading font-black text-emerald-500/20 mb-4 block">02</span>
+                    <h3 class="text-2xl font-bold text-white mb-4">Data Input & Validation</h3>
+                    <p class="text-slate-400 leading-relaxed">Sistem memunculkan Discord Modal (Pop-up) untuk menangkap data spesifik pengguna seperti Username Roblox. Data ini kemudian divalidasi secara asinkron sebelum memicu pembuatan tagihan.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-start mb-20">
+                <div>
+                    <span class="text-6xl font-heading font-black text-emerald-500/20 mb-4 block">03</span>
+                    <h3 class="text-2xl font-bold text-white mb-4">QRIS & Database Sync</h3>
+                    <p class="text-slate-400 leading-relaxed">Sistem menghasilkan QRIS dinamis. Saat pembayaran terdeteksi oleh webhook sistem, data transaksi dikirim ke <b>Supabase</b> untuk persistensi cloud, memastikan lisensi diaktifkan secara 24/7 tanpa intervensi admin.</p>
+                </div>
+                <div class="premium-border p-2 rounded-3xl">
+                    <img src="assets/qris.png" class="rounded-2xl w-full shadow-2xl" alt="QRIS Flow">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="py-40 px-10 text-center relative">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-xs uppercase tracking-[0.5em] text-emerald-500 mb-10 font-bold font-mono">03 // Inquiries</h3>
-            <h2 class="text-6xl md:text-7xl font-bold text-white mb-16 font-heading leading-tight italic">Let’s define the <span class="text-emerald-500">next logic.</span></h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="mailto:m.nurkholik1704@gmail.com" class="premium-border p-8 rounded-3xl hover:border-emerald-500 transition-all duration-500 group">
-                    <i class="fas fa-paper-plane text-2xl mb-6 text-slate-600 group-hover:text-emerald-500"></i>
-                    <span class="block text-xs uppercase tracking-widest font-bold text-slate-400 group-hover:text-white">Direct Email</span>
-                </a>
-                <a href="https://github.com/mnurkholik1704-coder" target="_blank" class="premium-border p-8 rounded-3xl hover:border-emerald-500 transition-all duration-500 group">
-                    <i class="fab fa-github text-2xl mb-6 text-slate-600 group-hover:text-emerald-500"></i>
-                    <span class="block text-xs uppercase tracking-widest font-bold text-slate-400 group-hover:text-white">Github Hub</span>
-                </a>
-                <a href="https://instagram.com/m.nurkholik.k" target="_blank" class="premium-border p-8 rounded-3xl hover:border-pink-500 transition-all duration-500 group">
-                    <i class="fab fa-instagram text-2xl mb-6 text-slate-600 group-hover:text-pink-500"></i>
-                    <span class="block text-xs uppercase tracking-widest font-bold text-slate-400 group-hover:text-white">Instagram</span>
-                </a>
-                <div class="premium-border p-8 rounded-3xl">
-                    <i class="fas fa-location-dot text-2xl mb-6 text-slate-700"></i>
-                    <span class="block text-xs uppercase tracking-widest font-bold text-slate-500 tracking-tighter">Banten, Indonesia</span>
-                </div>
-            </div>
+    <div id="adminPanel" class="premium-border p-8 rounded-3xl shadow-2xl bg-[#0a101f] border-emerald-500/50">
+        <div class="flex justify-between items-center mb-6">
+            <h4 class="text-white font-bold font-heading">Project Manager</h4>
+            <button onclick="toggleAdmin()" class="text-slate-500"><i class="fas fa-times"></i></button>
         </div>
-    </section>
+        <div class="space-y-4">
+            <div>
+                <label class="text-[10px] text-slate-500 uppercase tracking-widest font-bold block mb-2">Project Name</label>
+                <input type="text" placeholder="e.g. New API System" class="w-full bg-slate-900 border border-white/5 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 outline-none transition">
+            </div>
+            <div>
+                <label class="text-[10px] text-slate-500 uppercase tracking-widest font-bold block mb-2">Thumbnail URL</label>
+                <input type="text" placeholder="https://..." class="w-full bg-slate-900 border border-white/5 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 outline-none transition">
+            </div>
+            <button class="w-full bg-emerald-500 text-black font-bold py-3 rounded-xl hover:bg-emerald-400 transition text-sm">Add New Project</button>
+        </div>
+    </div>
 
     <footer class="py-20 text-center border-t border-white/5">
         <p class="text-[10px] font-mono uppercase tracking-[0.8em] text-slate-600">
-            NURKHOLIK &copy; MMXXVI — ALL RIGHTS RESERVED
+            OWNED BY NURKHOLIK &copy; 2026 — AUTOMATION ARCHITECT
         </p>
     </footer>
 
+    <script>
+        function openProject() {
+            document.getElementById('projectModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeProject() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
