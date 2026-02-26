@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurkholik | Software Engineering Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #020617; color: #f8fafc; scroll-behavior: smooth; }
+        .project-card:hover { transform: translateY(-10px); transition: 0.4s; border: 1px solid #22d3ee; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <section class="min-h-[50vh] flex flex-col justify-center items-center px-6 text-center">
+        <h1 class="text-6xl font-black mb-4 tracking-tighter uppercase">Nur<span class="text-cyan-400">kholik</span></h1>
+        <p class="text-slate-400 text-lg max-w-2xl leading-relaxed italic">
+            "Focusing on high-efficiency backend automation and scalable cloud database architecture."
+        </p>
+    </section>
+
+    <section id="projects" class="py-10 px-6 max-w-6xl mx-auto">
+        <h2 class="text-xl font-bold mb-12 flex items-center gap-4 uppercase tracking-[0.2em]">
+            <span class="w-12 h-[2px] bg-cyan-500"></span> Projects Portfolio
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="project-card bg-slate-900/50 border border-slate-800 rounded-3xl overflow-hidden flex flex-col shadow-2xl">
+                <div class="h-48 bg-slate-800 overflow-hidden relative group">
+                    <img src="assets/dashboard.png" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500" alt="Dashboard Preview">
+                </div>
+
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white tracking-tight">Motion Core</h3>
+                        <span class="text-[9px] bg-green-500/10 text-green-400 px-2 py-1 rounded border border-green-400/20 font-bold uppercase tracking-widest text-center">Live System</span>
+                    </div>
+                    
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8 text-justify">
+                        An automated Discord e-commerce bot integrated with <b>QRIS</b> for payments and <b>Supabase</b> for cloud data persistence.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                        <a href="assets/qris.png" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold transition">
+                            <i class="fas fa-qrcode text-cyan-400"></i> QRIS FLOW
+                        </a>
+                        <a href="assets/database.png" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold transition">
+                            <i class="fas fa-database text-cyan-400"></i> DATABASE
+                        </a>
+                        <a href="assets/menu.png" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold transition">
+                            <i class="fas fa-list text-cyan-400"></i> MENU UI
+                        </a>
+                        <a href="assets/modal.png" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold transition">
+                            <i class="fas fa-edit text-cyan-400"></i> INPUT FORM
+                        </a>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <span class="text-[9px] text-slate-500 font-mono">#NODEJS</span>
+                        <span class="text-[9px] text-slate-500 font-mono">#SUPABASE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-2 border-dashed border-slate-800 rounded-3xl flex flex-col items-center justify-center p-12 text-center opacity-40">
+                <i class="fas fa-plus mb-4 text-slate-600"></i>
+                <p class="text-[10px] font-mono tracking-widest text-slate-600 uppercase text-center">Upcoming Project</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-slate-900/50">
+        <p class="text-slate-600 text-[10px] font-mono uppercase tracking-[0.3em] text-center">
+            &copy; 2026 Nurkholik // Engineered for Scalability
+        </p>
+    </footer>
+
+</body>
+</html>
