@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Core Breakdown | Nurkholik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #050810; color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; }
+        .img-container { border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 20px; background: rgba(255,255,255,0.02); }
+    </style>
+</head>
+<body class="py-20 px-10">
+    <div class="max-w-4xl mx-auto">
+        <a href="index.html" class="text-emerald-500 text-xs font-bold uppercase tracking-widest mb-10 inline-block hover:text-white transition">← Back to Portfolio</a>
+        
+        <header class="mb-20">
+            <h1 class="text-5xl font-bold text-white mb-6">Motion Core<br>Flow Explanation</h1>
+            <p class="text-slate-400 text-xl leading-relaxed font-light">Otomatisasi siklus e-commerce 24/7 menggunakan Discord as Interface, Supabase sebagai Database, dan QRIS sebagai Gateway Pembayaran.</p>
+        </header>
+
+        <div class="mb-32">
+            <h2 class="text-2xl font-bold text-white mb-6">01. Interaction Layer</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">Pengguna memilih paket melalui menu dropdown yang tersedia. Sistem secara dinamis menampilkan harga berdasarkan durasi yang dipilih.</p>
+            <div class="img-container">
+                <img src="assets/menu.png" class="w-full rounded-xl" alt="Menu Flow">
+            </div>
+        </div>
+
+        <div class="mb-32">
+            <h2 class="text-2xl font-bold text-white mb-6">02. Data Capture & Validation</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">Setelah memilih, pop-up Modal muncul untuk meminta input spesifik (Username Roblox). Data divalidasi secara real-time sebelum invoice dibuat.</p>
+            <div class="img-container">
+                <img src="assets/modal.png" class="w-full rounded-xl" alt="Modal Input">
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h2 class="text-2xl font-bold text-white mb-6">03. Automated Settlement</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed">QRIS di-generate secara otomatis. Begitu pembayaran terdeteksi, sistem langsung memberikan role/lisensi dan mencatat transaksi ke database cloud.</p>
+            <div class="img-container">
+                <img src="assets/qris.png" class="w-full rounded-xl" alt="Payment Settlement">
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-20 py-10 text-center border-t border-white/5">
+        <p class="text-[10px] text-slate-600 tracking-[0.5em] uppercase">Project Case Study — Muhammad Nurkholik</p>
+    </footer>
+</body>
+</html>
