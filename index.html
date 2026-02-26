@@ -14,14 +14,12 @@
         
         .premium-border { border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, rgba(15, 23, 42, 0.4), rgba(2, 6, 23, 0.8)); }
         
-        /* Modal System for Project Details */
-        #projectModal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(5, 8, 16, 0.95); backdrop-filter: blur(15px); }
-        .modal-content { max-height: 90vh; overflow-y: auto; scrollbar-width: none; }
-        .modal-content::-webkit-scrollbar { display: none; }
+        /* Page Transition Logic */
+        .page { display: none; min-height: 100vh; transition: opacity 0.5s ease; }
+        .page-active { display: block; animation: fadeIn 0.8s forwards; }
 
-        /* Admin Panel Toggle */
-        #adminPanel { display: none; position: fixed; right: 20px; bottom: 20px; z-index: 1000; width: 350px; }
-        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
         .nav-glass { background: rgba(10, 16, 31, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
     </style>
 </head>
@@ -29,130 +27,116 @@
 
     <nav class="fixed top-0 w-full z-50 py-6 px-10">
         <div class="max-w-7xl mx-auto flex justify-between items-center nav-glass rounded-2xl px-8 py-4 shadow-2xl">
-            <span class="text-xl font-bold tracking-widest font-heading text-white">NUR<span class="text-emerald-500">KHOLIK</span></span>
+            <span class="text-xl font-bold tracking-widest font-heading text-white cursor-pointer" onclick="showPage('home')">NUR<span class="text-emerald-500">KHOLIK</span></span>
             <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest font-bold text-slate-400">
-                <a href="#about" class="hover:text-emerald-400 transition">Introduction</a>
-                <a href="#projects" class="hover:text-emerald-400 transition">Works</a>
-                <button onclick="toggleAdmin()" class="text-emerald-500/50 hover:text-emerald-400 transition"><i class="fas fa-lock text-xs"></i></button>
+                <a href="javascript:void(0)" onclick="showPage('home')" class="hover:text-emerald-400 transition">Introduction</a>
+                <a href="javascript:void(0)" onclick="showPage('home')" class="hover:text-emerald-400 transition">Works</a>
+                <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/5 blur-[120px] rounded-full"></div>
-        <div class="text-center relative z-10">
-            <h2 class="text-emerald-500 font-mono text-xs tracking-[0.5em] uppercase mb-4">Software Engineer Portfolio</h2>
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tighter text-white font-heading">
-                Muhammad <br> <span class="text-emerald-500">Nurkholik</span>
-            </h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-10">
-                Pemilik dan Pengembang Utama sistem otomasi <b>Motion Core</b>. Spesialisasi dalam arsitektur Backend dan integrasi sistem pembayaran cloud.
-            </p>
-        </div>
-    </section>
+    <main id="home-page" class="page page-active">
+        <section class="min-h-screen flex flex-col justify-center items-center px-6 relative">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/5 blur-[120px] rounded-full"></div>
+            <div class="text-center relative z-10">
+                <h2 class="text-emerald-500 font-mono text-xs tracking-[0.5em] uppercase mb-4">Software Architecture</h2>
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tighter text-white font-heading">Logic Into <br> <span class="text-emerald-500">Efficiency.</span></h1>
+                <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-10">Mahasiswa Teknik Informatika Semester 6 di Universitas Muhammadiyah Tangerang. Fokus pada pengembangan sistem backend dan otomatisasi workflow.</p>
+            </div>
+        </section>
 
-    <section id="projects" class="py-20 px-10 max-w-7xl mx-auto">
-        <div class="mb-16">
-            <h3 class="text-xs uppercase tracking-[0.5em] text-emerald-500 mb-2 font-bold font-mono">01 // Selected Works</h3>
-            <h2 class="text-4xl font-bold text-white font-heading italic underline decoration-emerald-500/20">Featured System</h2>
-        </div>
+        <section id="projects" class="py-20 px-10 max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h3 class="text-xs uppercase tracking-[0.5em] text-emerald-500 mb-2 font-bold font-mono">01 // Selected Works</h3>
+                <h2 class="text-4xl font-bold text-white font-heading italic underline decoration-emerald-500/20">Featured System</h2>
+            </div>
 
-        <div onclick="openProject()" class="group cursor-pointer premium-border rounded-[2.5rem] overflow-hidden grid md:grid-cols-2 items-center hover:border-emerald-500/50 transition-all duration-500">
-            <div class="p-12 order-2 md:order-1">
-                <div class="flex gap-3 mb-6">
-                    <span class="text-[9px] border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Live System</span>
-                    <span class="text-[9px] border border-white/10 text-slate-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Roblox Automation</span>
+            <div onclick="showPage('project-detail')" class="group cursor-pointer premium-border rounded-[2.5rem] overflow-hidden grid md:grid-cols-2 items-center hover:border-emerald-500/50 transition-all duration-500 shadow-2xl">
+                <div class="p-12 order-2 md:order-1">
+                    <div class="flex gap-3 mb-6">
+                        <span class="text-[9px] border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Live System</span>
+                        <span class="text-[9px] border border-white/10 text-slate-400 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Automation</span>
+                    </div>
+                    <h3 class="text-4xl font-bold text-white mb-4 font-heading group-hover:text-emerald-400 transition">Motion Core Ecosystem</h3>
+                    <p class="text-slate-400 leading-relaxed mb-8">Penyederhanaan sistem perdagangan digital via Discord. Mengintegrasikan API pembayaran QRIS dengan basis data cloud untuk validasi transaksi instan.</p>
+                    <span class="text-xs font-bold text-emerald-500 tracking-[0.3em] uppercase group-hover:translate-x-2 inline-block transition-transform">Click to View Breakdown →</span>
                 </div>
-                <h3 class="text-4xl font-bold text-white mb-4 font-heading group-hover:text-emerald-400 transition">Motion Core Ecosystem</h3>
-                <p class="text-slate-400 leading-relaxed mb-8">Sistem e-commerce Discord terotomasi yang terintegrasi dengan QRIS dan Supabase. Klik untuk melihat detail alur kerja.</p>
-                <span class="text-xs font-bold text-emerald-500 tracking-[0.3em] uppercase group-hover:translate-x-2 inline-block transition-transform">View Full Documentation →</span>
+                <div class="h-full min-h-[400px] overflow-hidden order-1 md:order-2">
+                    <img src="assets/dashboard.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Motion Core">
+                </div>
             </div>
-            <div class="h-full min-h-[400px] overflow-hidden order-1 md:order-2">
-                <img src="assets/dashboard.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Motion Core">
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <div id="projectModal">
-        <div class="modal-content max-w-5xl mx-auto py-20 px-10">
-            <div class="flex justify-between items-center mb-16">
-                <button onclick="closeProject()" class="text-slate-500 hover:text-white transition uppercase tracking-widest text-xs font-bold font-mono">← Back to Portfolio</button>
-                <h2 class="text-2xl font-heading font-bold text-emerald-500">Documentation.</h2>
-            </div>
-
-            <h1 class="text-5xl font-heading font-bold text-white mb-10">Motion Core <br> Payment System</h1>
+    <main id="project-detail" class="page">
+        <section class="pt-32 pb-20 px-10 max-w-5xl mx-auto">
+            <button onclick="showPage('home')" class="text-slate-500 hover:text-white transition uppercase tracking-widest text-xs font-bold mb-10"><i class="fas fa-arrow-left mr-2"></i> Back to Home</button>
             
-            <div class="grid md:grid-cols-2 gap-16 items-start mb-32">
-                <div>
-                    <span class="text-6xl font-heading font-black text-emerald-500/20 mb-4 block">01</span>
-                    <h3 class="text-2xl font-bold text-white mb-4">User Interaction & Interface</h3>
-                    <p class="text-slate-400 leading-relaxed">Pengguna memulai interaksi melalui menu dropdown di Discord. UI dirancang minimalis menggunakan tombol (Buttons) dan menu (Select Menus) untuk mengurangi beban input manual.</p>
-                </div>
-                <div class="premium-border p-2 rounded-3xl">
-                    <img src="assets/menu.png" class="rounded-2xl w-full shadow-2xl" alt="Menu UI">
-                </div>
-            </div>
+            <h1 class="text-5xl font-heading font-bold text-white mb-6">Motion Core Payment System</h1>
+            <p class="text-slate-400 text-xl font-light mb-16 leading-relaxed max-w-3xl">Sebuah sistem bot Discord e-commerce yang dirancang untuk mengotomatisasi seluruh siklus pembelian lisensi script Roblox menggunakan QRIS dan Supabase.</p>
 
-            <div class="grid md:grid-cols-2 gap-16 items-start mb-32">
-                <div class="premium-border p-2 rounded-3xl order-2 md:order-1">
-                    <img src="assets/modal.png" class="rounded-2xl w-full shadow-2xl" alt="Input Form">
+            <div class="space-y-32">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-emerald-500 font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Stage 01 // Interaction</span>
+                        <h3 class="text-3xl font-bold text-white mb-6 font-heading">Intuitive User Menu</h3>
+                        <p class="text-slate-400 leading-relaxed mb-6">Sistem menggunakan komponen Discord modern seperti <b>String Select Menus</b> dan <b>Buttons</b> untuk memastikan navigasi produk yang lancar tanpa perlu mengetik command manual.</p>
+                        <ul class="text-sm text-slate-500 space-y-2">
+                            <li><i class="fas fa-check text-emerald-500 mr-2"></i> Auto-detection of package duration</li>
+                            <li><i class="fas fa-check text-emerald-500 mr-2"></i> Dynamic price updates via API</li>
+                        </ul>
+                    </div>
+                    <div class="premium-border p-3 rounded-3xl">
+                        <img src="assets/menu.png" class="rounded-2xl w-full shadow-2xl" alt="Menu UI Flow">
+                    </div>
                 </div>
-                <div class="order-1 md:order-2">
-                    <span class="text-6xl font-heading font-black text-emerald-500/20 mb-4 block">02</span>
-                    <h3 class="text-2xl font-bold text-white mb-4">Data Input & Validation</h3>
-                    <p class="text-slate-400 leading-relaxed">Sistem memunculkan Discord Modal (Pop-up) untuk menangkap data spesifik pengguna seperti Username Roblox. Data ini kemudian divalidasi secara asinkron sebelum memicu pembuatan tagihan.</p>
-                </div>
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-16 items-start mb-20">
-                <div>
-                    <span class="text-6xl font-heading font-black text-emerald-500/20 mb-4 block">03</span>
-                    <h3 class="text-2xl font-bold text-white mb-4">QRIS & Database Sync</h3>
-                    <p class="text-slate-400 leading-relaxed">Sistem menghasilkan QRIS dinamis. Saat pembayaran terdeteksi oleh webhook sistem, data transaksi dikirim ke <b>Supabase</b> untuk persistensi cloud, memastikan lisensi diaktifkan secara 24/7 tanpa intervensi admin.</p>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="premium-border p-3 rounded-3xl order-2 md:order-1">
+                        <img src="assets/modal.png" class="rounded-2xl w-full shadow-2xl" alt="Input Form Detail">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <span class="text-emerald-500 font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Stage 02 // Validation</span>
+                        <h3 class="text-3xl font-bold text-white mb-6 font-heading">Asynchronous Data Input</h3>
+                        <p class="text-slate-400 leading-relaxed">Melalui Discord Modals, sistem menangkap variabel kritis (seperti Username Roblox) dan melakukan validasi database sebelum memproses invoice.</p>
+                    </div>
                 </div>
-                <div class="premium-border p-2 rounded-3xl">
-                    <img src="assets/qris.png" class="rounded-2xl w-full shadow-2xl" alt="QRIS Flow">
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-emerald-500 font-mono text-sm tracking-[0.3em] uppercase mb-4 block">Stage 03 // Fulfillment</span>
+                        <h3 class="text-3xl font-bold text-white mb-6 font-heading">Automated QRIS Invoicing</h3>
+                        <p class="text-slate-400 leading-relaxed">Sistem menghasilkan QRIS unik untuk setiap transaksi. Webhook asinkron memantau status pembayaran secara real-time dan secara otomatis menyimpan data lisensi ke <b>Supabase</b> setelah transaksi sukses.</p>
+                    </div>
+                    <div class="premium-border p-3 rounded-3xl">
+                        <img src="assets/qris.png" class="rounded-2xl w-full shadow-2xl" alt="QRIS Transaction Flow">
+                    </div>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="py-20 text-center border-t border-white/5 bg-[#050810]">
+        <h2 class="text-3xl font-heading font-bold text-white mb-8">Let's Connect.</h2>
+        <div class="flex justify-center gap-6 mb-12">
+            <a href="https://github.com/mnurkholik1704-coder" class="text-slate-500 hover:text-white text-2xl transition"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/m.nurkholik.k" class="text-slate-500 hover:text-pink-500 text-2xl transition"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:m.nurkholik1704@gmail.com" class="text-slate-500 hover:text-emerald-500 text-2xl transition"><i class="fas fa-envelope"></i></a>
         </div>
-    </div>
-
-    <div id="adminPanel" class="premium-border p-8 rounded-3xl shadow-2xl bg-[#0a101f] border-emerald-500/50">
-        <div class="flex justify-between items-center mb-6">
-            <h4 class="text-white font-bold font-heading">Project Manager</h4>
-            <button onclick="toggleAdmin()" class="text-slate-500"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="space-y-4">
-            <div>
-                <label class="text-[10px] text-slate-500 uppercase tracking-widest font-bold block mb-2">Project Name</label>
-                <input type="text" placeholder="e.g. New API System" class="w-full bg-slate-900 border border-white/5 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 outline-none transition">
-            </div>
-            <div>
-                <label class="text-[10px] text-slate-500 uppercase tracking-widest font-bold block mb-2">Thumbnail URL</label>
-                <input type="text" placeholder="https://..." class="w-full bg-slate-900 border border-white/5 rounded-xl px-4 py-3 text-sm focus:border-emerald-500 outline-none transition">
-            </div>
-            <button class="w-full bg-emerald-500 text-black font-bold py-3 rounded-xl hover:bg-emerald-400 transition text-sm">Add New Project</button>
-        </div>
-    </div>
-
-    <footer class="py-20 text-center border-t border-white/5">
-        <p class="text-[10px] font-mono uppercase tracking-[0.8em] text-slate-600">
-            OWNED BY NURKHOLIK &copy; 2026 — AUTOMATION ARCHITECT
-        </p>
+        <p class="text-[10px] font-mono uppercase tracking-[0.8em] text-slate-600">NURKHOLIK &copy; 2026 — ALL RIGHTS RESERVED</p>
     </footer>
 
     <script>
-        function openProject() {
-            document.getElementById('projectModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        function closeProject() {
-            document.getElementById('projectModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        function toggleAdmin() {
-            const panel = document.getElementById('adminPanel');
-            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('page-active'));
+            
+            // Show selected page
+            document.getElementById(pageId + '-page' || pageId).classList.add('page-active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
