@@ -3,129 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studi Kasus | Motion Core System</title>
+    <title>Project Detail | Motion Core System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Outfit:wght@500;800&display=swap" rel="stylesheet">
     
     <style>
-        body { background-color: #ffffff; color: #334155; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.7; }
-        .img-box { background: #f8f9fa; border: 1px solid #f1f5f9; border-radius: 24px; padding: 12px; transition: all 0.3s ease; }
-        .img-box:hover { transform: scale(1.02); border-color: #10b981; }
-        .img-box img { width: 100%; height: auto; border-radius: 16px; display: block; }
-        .step-number { background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 2.5rem; }
-        .line-flow { border-left: 2px dashed rgba(16, 185, 129, 0.3); margin-left: 20px; padding-left: 40px; padding-bottom: 80px; position: relative; }
-        .line-flow:last-child { border-left: none; }
-        .dot { absolute; left: -11px; top: 15px; width: 20px; height: 20px; background: #10b981; border: 4px solid #ffffff; border-radius: 50%; box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+        body { background-color: #f8fafc; color: #1e293b; font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, .nav-logo { font-family: 'Outfit', sans-serif; }
+
+        .project-card {
+            background: #ffffff;
+            border: 3px solid #0f172a;
+            border-radius: 30px;
+            box-shadow: 12px 12px 0px #10b981;
+        }
+
+        .back-btn {
+            transition: all 0.3s ease;
+            border: 2px solid #0f172a;
+        }
+        .back-btn:hover {
+            background: #0f172a;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .tag {
+            background: #f1f5f9;
+            border: 1px solid #0f172a;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="max-w-5xl mx-auto px-6 py-10">
-        <a href="index.html" class="text-emerald-600 font-bold flex items-center gap-2 hover:translate-x-[-4px] transition-all">
-            <i class="fas fa-arrow-left"></i> Kembali ke Portfolio
-        </a>
+    <nav class="p-6">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="back-btn px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-widest">
+                ← Kembali
+            </a>
+            <div class="nav-logo text-xl font-black italic">PROJECT<span class="text-emerald-500">.01</span></div>
+        </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-6 pb-24">
-        
-        <header class="mb-24 text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Proses & Hasil Akhir</h1>
-            <p class="text-lg text-slate-500 max-w-2xl leading-relaxed">
-                Menjelaskan cara berpikir dan kemampuan <i>problem-solving</i> di balik sistem otomasi Motion Core.
-            </p>
-        </header>
-
-        <section class="grid md:grid-cols-2 gap-10 mb-32">
-            <div class="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
-                <h3 class="font-bold text-slate-900 mb-3 italic">Apa masalahnya?</h3>
-                <p class="text-sm text-slate-500">Proses beli manual yang memakan waktu. Saya membangun sistem 24/7 agar pembeli dapat lisensi instan tanpa admin.</p>
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="mb-12 text-center md:text-left">
+            <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
+                <span class="tag">Discord API</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Node.js / JS</span>
             </div>
-            <div class="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
-                <h3 class="font-bold text-slate-900 mb-3 italic">Teknologi Pilihan</h3>
-                <p class="text-sm text-slate-500"><b>Discord API</b> untuk kemudahan user dan <b>Supabase</b> untuk database cloud yang aman.</p>
-            </div>
-            <div class="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
-                <h3 class="font-bold text-slate-900 mb-3 italic">Tantangan & Solusi</h3>
-                <p class="text-sm text-slate-500">Verifikasi otomatis diselesaikan dengan <i>Webhook</i> untuk deteksi transaksi real-time.</p>
-            </div>
-            <div class="p-8 bg-emerald-50 rounded-[32px] border border-emerald-100">
-                <h3 class="font-bold text-emerald-900 mb-3 italic">Rencana Perbaikan</h3>
-                <p class="text-sm text-emerald-700 font-medium">Menambahkan fitur grafik statistik pada panel admin untuk audit keuangan yang lebih mudah.</p>
-            </div>
-        </section>
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 leading-tight uppercase mb-4">
+                Motion Core <span class="text-emerald-500">System</span>
+            </h1>
+            <p class="text-lg text-slate-500 font-medium italic">"Otomasi yang bekerja saat Anda sedang tidur."</p>
+        </div>
 
-        <hr class="border-slate-100 mb-32">
+        <div class="project-card overflow-hidden mb-16">
+            <div class="bg-slate-900 aspect-video flex items-center justify-center text-white">
+                <i class="fas fa-code text-6xl opacity-20"></i>
+                <span class="absolute font-black uppercase tracking-tighter opacity-50 text-xl">Preview System</span>
+            </div>
+        </div>
 
-        <h2 class="text-3xl font-bold text-slate-900 mb-20 text-center">Technical Step-by-Step</h2>
-
-        <div class="max-w-4xl mx-auto">
-            
-            <div class="line-flow">
-                <div class="dot"></div>
-                <div class="grid md:grid-cols-2 gap-10 items-center">
-                    <div>
-                        <span class="step-number">01.</span>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">User Interface</h3>
-                        <p class="text-slate-500 text-sm">Pembeli memilih paket melalui menu interaktif Discord yang terintegrasi otomatis.</p>
-                    </div>
-                    <div class="img-box"><img src="assets-project-1/menu.png" alt="Menu"></div>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xs font-black uppercase text-emerald-600 mb-2">Role</h4>
+                    <p class="font-bold text-slate-900">Solo Developer</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black uppercase text-emerald-600 mb-2">Timeline</h4>
+                    <p class="font-bold text-slate-900">2024 — Ongoing</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black uppercase text-emerald-600 mb-2">Focus</h4>
+                    <p class="font-bold text-slate-900 italic">Efficiency & Reliability</p>
                 </div>
             </div>
 
-            <div class="line-flow">
-                <div class="dot"></div>
-                <div class="grid md:grid-cols-2 gap-10 items-center">
-                    <div class="img-box order-2 md:order-1"><img src="assets-project-1/qris.png" alt="QRIS"></div>
-                    <div class="order-1 md:order-2">
-                        <span class="step-number">02.</span>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">QRIS Gateway</h3>
-                        <p class="text-slate-500 text-sm">Sistem men-generate kode QRIS otomatis sesuai harga paket untuk pembayaran instan.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="md:col-span-2 space-y-8">
+                <section>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter italic">// Overview</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        Motion Core System adalah solusi otomasi yang dirancang untuk menangani manajemen lisensi dan sistem pembayaran secara instan melalui integrasi Discord. Project ini lahir dari kebutuhan untuk memangkas proses manual yang memakan waktu.
+                    </p>
+                </section>
 
-            <div class="line-flow">
-                <div class="dot"></div>
-                <div class="grid md:grid-cols-2 gap-10 items-center">
-                    <div>
-                        <span class="step-number">03.</span>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Admin Notification</h3>
-                        <p class="text-slate-500 text-sm">Laporan transaksi dikirim via Webhook ke panel admin untuk transparansi audit.</p>
-                    </div>
-                    <div class="img-box"><img src="assets-project-1/webhook.png" alt="Webhook"></div>
-                </div>
-            </div>
+                <section>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter italic">// The Logic</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium mb-4">
+                        Sebagai orang yang mementingkan **vibes & logic**, saya membangun sistem ini agar:
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-sm font-bold text-slate-700">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1"></i>
+                            Mampu memproses webhook pembayaran secara real-time.
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-bold text-slate-700">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1"></i>
+                            Otomatisasi pemberian role dan akses lisensi ke user.
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-bold text-slate-700">
+                            <i class="fas fa-check-circle text-emerald-500 mt-1"></i>
+                            Database yang ringan namun aman untuk tracking transaksi.
+                        </li>
+                    </ul>
+                </section>
 
-            <div class="line-flow">
-                <div class="dot"></div>
-                <div class="grid md:grid-cols-2 gap-10 items-center">
-                    <div class="img-box order-2 md:order-1"><img src="assets-project-1/dashboard.png" alt="Dashboard"></div>
-                    <div class="order-1 md:order-2">
-                        <span class="step-number">04.</span>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">License Registry</h3>
-                        <p class="text-slate-500 text-sm">Penyimpanan data lisensi secara terpusat dan aman di cloud database.</p>
-                    </div>
-                </div>
+                <section class="p-8 bg-slate-900 rounded-[24px] text-white">
+                    <h3 class="text-xl font-black uppercase mb-4 text-emerald-400">Vibes Coding Insight</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed italic">
+                        "Kadang kita nggak butuh kode yang super kompleks. Yang penting kodenya bersih, logikanya dapet, dan masalah user selesai. Di project ini, saya fokus ke flow user agar transaksi nggak lebih dari 30 detik."
+                    </p>
+                </section>
             </div>
-
-            <div class="line-flow">
-                <div class="dot"></div>
-                <div class="grid md:grid-cols-2 gap-10 items-center">
-                    <div>
-                        <span class="step-number">05.</span>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Automated Delivery</h3>
-                        <p class="text-slate-500 text-sm">Pengiriman kunci lisensi langsung ke DM pembeli setelah validasi sukses.</p>
-                    </div>
-                    <div class="img-box"><img src="assets-project-1/outputcus.png" alt="Output"></div>
-                </div>
-            </div>
-
         </div>
     </main>
 
-    <footer class="py-12 border-t border-slate-50 text-center text-slate-400 text-[10px] uppercase tracking-widest font-bold">
-        Muhammad Nurkholik &copy; 2026
+    <footer class="py-20 text-center border-t-2 border-slate-900 mt-20 bg-emerald-50">
+        <p class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">End of Page</p>
+        <a href="index.html#portfolio" class="font-black text-slate-900 hover:text-emerald-600 transition underline decoration-2 offset-4">
+            ← Back to All Works
+        </a>
     </footer>
 
 </body>
