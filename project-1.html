@@ -1,121 +1,58 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studi Kasus | Motion Core System</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body { background-color: #ffffff; color: #334155; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.7; }
-        .img-box { background: #f8f9fa; border: 1px solid #f1f5f9; border-radius: 24px; padding: 12px; }
-        .img-box img { width: 100%; height: auto; border-radius: 16px; display: block; }
-        .step-number { background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 2rem; }
-        .line-flow { border-left: 2px dashed rgba(16, 185, 129, 0.2); margin-left: 20px; padding-left: 40px; }
-        .narrative-grid h3 { border-left: 4px solid #10b981; padding-left: 12px; margin-bottom: 1rem; }
-    </style>
-</head>
-<body class="antialiased">
+<h2 class="text-3xl font-bold text-slate-900 mb-16 text-center">Technical Step-by-Step</h2>
 
-    <nav class="max-w-5xl mx-auto px-6 py-10">
-        <a href="index.html" class="text-emerald-600 font-bold flex items-center gap-2">
-            <i class="fas fa-arrow-left"></i> Kembali ke Portfolio
-        </a>
-    </nav>
-
-    <main class="max-w-5xl mx-auto px-6 pb-24">
-        
-        <header class="mb-20">
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Ceritakan Proses dan Hasil Akhir</h1>
-            <p class="text-lg text-slate-500 max-w-3xl leading-relaxed">
-                Menjelaskan proses di balik layar adalah cara saya menunjukkan kemampuan <i>problem-solving</i> melalui sistem otomasi ini.
-            </p>
-        </header>
-
-        <section class="narrative-grid grid md:grid-cols-2 gap-12 mb-32">
+<div class="space-y-32">
+    <div class="line-flow relative">
+        <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h3 class="text-xl font-bold text-slate-900">Masalah yang Diselesaikan</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    Menghilangkan hambatan proses pembelian manual yang memakan waktu lama. Saya membangun sistem 24/7 agar pembeli mendapatkan lisensi secara instan tanpa menunggu admin.
-                </p>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">01.</span> User Interface</h3>
+                <p class="text-slate-500 text-sm">Pembeli memilih durasi lisensi melalui menu interaktif yang terhubung langsung ke sistem pembayaran.</p>
             </div>
-            <div>
-                <h3 class="text-xl font-bold text-slate-900">Teknologi yang Dipilih</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    Menggunakan <b>Discord API</b> untuk interface yang familiar bagi user dan <b>Supabase</b> untuk database lisensi yang aman dan cepat.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-slate-900">Tantangan & Solusi</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    Tantangan verifikasi pembayaran otomatis diselesaikan dengan integrasi <i>Webhook</i> yang mengirimkan data transaksi detail secara real-time.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-slate-900">Rencana Perbaikan</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">
-                    Ke depannya, saya ingin menambahkan fitur grafik statistik pada panel admin untuk mempermudah audit keuangan mingguan.
-                </p>
-            </div>
-        </section>
+            <div class="img-box"><img src="assets-project-1/menu.png" alt="Menu Discord"></div>
+        </div>
+    </div>
 
-        <hr class="border-slate-100 mb-32">
-
-        <h2 class="text-3xl font-bold text-slate-900 mb-16 text-center">Technical Step-by-Step</h2>
-
-        <div class="space-y-32">
-            <div class="line-flow relative">
-                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">01.</span> User Interface</h3>
-                        <p class="text-slate-500 text-sm">Pembeli memilih durasi lisensi melalui menu interaktif yang terhubung langsung ke sistem pembayaran.</p>
-                    </div>
-                    <div class="img-box"><img src="assets-project-1/menu.png" alt="Menu Discord"></div>
-                </div>
-            </div>
-
-            <div class="line-flow relative">
-                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="img-box order-2 md:order-1"><img src="assets-project-1/webhook.png" alt="Webhook Admin"></div>
-                    <div class="order-1 md:order-2">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">02.</span> Admin Notification</h3>
-                        <p class="text-slate-500 text-sm">Bot mengirimkan laporan otomatis ke panel admin segera setelah transaksi berhasil dideteksi oleh webhook.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="line-flow relative">
-                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">03.</span> License Registry</h3>
-                        <p class="text-slate-500 text-sm">Admin dapat mengelola seluruh data pembeli secara cloud, termasuk memantau durasi sisa lisensi.</p>
-                    </div>
-                    <div class="img-box"><img src="assets-project-1/dashboard.png" alt="Dashboard Admin"></div>
-                </div>
-            </div>
-
-            <div class="line-flow relative border-none">
-                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="img-box order-2 md:order-1"><img src="assets-project-1/outputcus.png" alt="Output Customer"></div>
-                    <div class="order-1 md:order-2">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">04.</span> Automated Delivery</h3>
-                        <p class="text-slate-500 text-sm">Hasil akhir berupa pengiriman lisensi key dan script secara otomatis ke DM pembeli.</p>
-                    </div>
-                </div>
+    <div class="line-flow relative">
+        <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="img-box order-2 md:order-1"><img src="assets-project-1/qris.png" alt="QRIS Payment Gateway"></div>
+            <div class="order-1 md:order-2">
+                <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">02.</span> QRIS Gateway</h3>
+                <p class="text-slate-500 text-sm">Sistem akan men-generate kode QRIS secara otomatis sesuai dengan nominal harga paket yang dipilih user untuk pembayaran instan.</p>
             </div>
         </div>
+    </div>
 
-    </main>
+    <div class="line-flow relative">
+        <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">03.</span> Admin Notification</h3>
+                <p class="text-slate-500 text-sm">Bot mengirimkan laporan otomatis ke panel admin melalui webhook segera setelah transaksi berhasil dideteksi.</p>
+            </div>
+            <div class="img-box"><img src="assets-project-1/webhook.png" alt="Webhook Admin"></div>
+        </div>
+    </div>
 
-    <footer class="py-12 border-t border-slate-50 text-center text-slate-400 text-[10px] uppercase tracking-widest font-bold">
-        Muhammad Nurkholik &copy; 2026
-    </footer>
+    <div class="line-flow relative">
+        <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="img-box order-2 md:order-1"><img src="assets-project-1/dashboard.png" alt="Dashboard Admin"></div>
+            <div class="order-1 md:order-2">
+                <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">04.</span> License Registry</h3>
+                <p class="text-slate-500 text-sm">Admin dapat mengelola seluruh data pembeli secara cloud melalui dashboard terpusat.</p>
+            </div>
+        </div>
+    </div>
 
-</body>
-</html>
+    <div class="line-flow relative border-none">
+        <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">05.</span> Automated Delivery</h3>
+                <p class="text-slate-500 text-sm">Hasil akhir berupa pengiriman lisensi key dan script secara otomatis ke DM pembeli setelah validasi sistem selesai.</p>
+            </div>
+            <div class="img-box"><img src="assets-project-1/outputcus.png" alt="Output Customer"></div>
+        </div>
+    </div>
+</div>
