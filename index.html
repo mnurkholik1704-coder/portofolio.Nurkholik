@@ -9,19 +9,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        body { background-color: #050810; color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .bento-card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 32px; transition: all 0.4s ease; }
-        .bento-card:hover { border-color: rgba(16, 185, 129, 0.4); transform: translateY(-5px); }
-        .text-gradient { background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { background-color: #ffffff; color: #1a1a1a; font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* Bento Card Style - Light Version */
+        .bento-card { 
+            background: #f8f9fa; 
+            border: 1px solid #eeeeee; 
+            border-radius: 32px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .bento-card:hover { 
+            background: #ffffff;
+            border-color: #10b981; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transform: translateY(-5px); 
+        }
+        .text-dark-gradient { 
+            background: linear-gradient(to right, #1a1a1a, #64748b); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <nav class="fixed top-0 w-full z-50 px-6 py-8">
-        <div class="max-w-6xl mx-auto flex justify-between items-center bg-black/20 backdrop-blur-md p-4 rounded-full border border-white/5">
-            <span class="font-bold tracking-tighter text-xl px-4">NURKHOLIK.</span>
-            <div class="flex gap-8 text-sm font-medium px-4">
-                <a href="#about" class="hover:text-emerald-400 transition">About</a>
+        <div class="max-w-6xl mx-auto flex justify-between items-center bg-white/70 backdrop-blur-lg p-4 rounded-full border border-gray-100 shadow-sm">
+            <span class="font-bold tracking-tighter text-xl px-4 text-black">NURKHOLIK.</span>
+            <div class="flex gap-8 text-sm font-semibold px-4 text-gray-600">
+                <a href="#about" class="hover:text-emerald-500 transition">About</a>
                 <a href="#work" class="hover:text-emerald-400 transition">Work</a>
                 <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
             </div>
@@ -32,69 +47,78 @@
         
         <section id="about" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div class="md:col-span-2 bento-card p-10 flex flex-col justify-center">
-                <h2 class="text-sm uppercase tracking-[0.3em] text-emerald-500 font-bold mb-6">Fullstack Developer</h2>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter leading-none mb-8">
-                    Crafting <span class="text-gradient">Digital Solution</span> with Logic.
+                <h2 class="text-sm uppercase tracking-[0.3em] text-emerald-600 font-extrabold mb-6">Fullstack Developer</h2>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-black tracking-tighter leading-none mb-8">
+                    Crafting <span class="text-dark-gradient">Digital Solution</span> with Logic.
                 </h1>
-                <p class="text-slate-400 text-lg max-w-xl leading-relaxed">
-                    Saya adalah pengembang yang fokus pada otomasi sistem dan efisiensi alur kerja. Menggabungkan interface Discord dengan database cloud untuk solusi bisnis yang skalabel.
+                <p class="text-gray-500 text-lg max-w-xl leading-relaxed">
+                    Fokus pada otomasi sistem dan efisiensi alur kerja. Mengintegrasikan Discord UI dengan database cloud untuk solusi bisnis yang skalabel dan transparan.
                 </p>
             </div>
             
-            <div class="bento-card p-2 overflow-hidden group">
-                <img src="assets/profile.png" class="w-full h-full object-cover rounded-[28px] grayscale group-hover:grayscale-0 transition duration-500" alt="Nurkholik">
+            <div class="bento-card bg-gray-100 flex items-center justify-center overflow-hidden">
+                <span class="text-8xl font-black text-white">NK</span>
             </div>
         </section>
 
         <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-            <div class="bento-card p-8 text-center">
-                <h3 class="text-3xl font-bold text-white mb-2">2+</h3>
-                <p class="text-xs uppercase tracking-widest text-slate-500">Years Experience</p>
+            <div class="bento-card p-8 flex flex-col items-center justify-center">
+                <i class="fab fa-node-js text-4xl text-emerald-600 mb-2"></i>
+                <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Backend System</p>
             </div>
-            <div class="bento-card p-8 text-center">
-                <h3 class="text-3xl font-bold text-white mb-2">50+</h3>
-                <p class="text-xs uppercase tracking-widest text-slate-500">Clients Served</p>
+            <div class="bento-card p-8 flex flex-col items-center justify-center">
+                <i class="fas fa-database text-4xl text-blue-600 mb-2"></i>
+                <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Supabase Cloud</p>
             </div>
-            <div class="bento-card p-8 text-center flex items-center justify-center gap-4">
-                <i class="fab fa-node-js text-2xl text-emerald-500"></i>
-                <i class="fas fa-database text-2xl text-emerald-500"></i>
+            <div class="bento-card p-8 flex flex-col items-center justify-center">
+                <i class="fab fa-discord text-4xl text-indigo-600 mb-2"></i>
+                <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Discord API</p>
             </div>
-            <div class="bento-card p-8 text-center">
-                <div class="flex justify-center -space-x-2">
-                    <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center border-2 border-[#050810]"><i class="fas fa-check text-[10px] text-black"></i></div>
-                    <div class="w-8 h-8 rounded-full bg-slate-700 border-2 border-[#050810]"></div>
+            <div class="bento-card p-8 flex flex-col items-center justify-center border-emerald-100 bg-emerald-50">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    <span class="font-bold text-emerald-700">Available</span>
                 </div>
-                <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Available for Work</p>
+                <p class="text-[10px] uppercase tracking-widest font-bold text-emerald-600/50">For Projects</p>
             </div>
         </section>
 
         <section id="work" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bento-card group relative overflow-hidden h-[500px]">
-                <img src="assets/menu.png" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition duration-500" alt="Project">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#050810] via-transparent to-transparent p-10 flex flex-col justify-end">
-                    <h3 class="text-3xl font-bold text-white mb-4 italic">Motion Core Payment</h3>
-                    <p class="text-slate-300 text-sm mb-6 max-w-sm">Sistem otomasi pembayaran lisensi menggunakan QRIS dan database Supabase.</p>
-                    <a href="project-detail.html" class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:gap-4 transition-all">
-                        View Project Breakdown <i class="fas fa-arrow-right"></i>
+            <div class="bento-card group p-4 flex flex-col h-[500px]">
+                <div class="relative flex-1 overflow-hidden rounded-[24px] bg-gray-200">
+                    <img src="assets/menu.png" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Project Preview">
+                </div>
+                <div class="p-6 flex justify-between items-end">
+                    <div>
+                        <h3 class="text-2xl font-bold text-black mb-1">Motion Core System</h3>
+                        <p class="text-gray-500 text-sm italic">Automated Payment & Licensing</p>
+                    </div>
+                    <a href="project-detail.html" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-emerald-500 transition-colors">
+                        <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
 
             <div class="grid grid-rows-2 gap-6">
-                <div class="bento-card p-10 flex flex-col justify-between border-emerald-500/20 bg-emerald-500/5">
-                    <h3 class="text-xl font-bold text-white">Cloud Integration</h3>
-                    <p class="text-slate-400 text-sm">Integrasi database PostgreSQL (Supabase) untuk penyimpanan data lisensi yang aman di cloud.</p>
-                    <div class="flex gap-4 mt-4">
-                        <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] uppercase font-bold">Supabase</span>
-                        <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] uppercase font-bold">Node.js</span>
+                <div class="bento-card p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-black">Real-time Webhooks</h3>
+                        <p class="text-gray-500 text-sm mt-2">Bot mengirimkan data transaksi detail ke panel admin secara instan untuk monitoring 24/7.</p>
                     </div>
                 </div>
-                <div class="bento-card p-10 flex flex-col justify-between">
-                    <h3 class="text-xl font-bold text-white">Webhook System</h3>
-                    <p class="text-slate-400 text-sm">Notifikasi transaksi real-time ke panel admin untuk monitoring 24/7.</p>
-                    <div class="flex gap-4 mt-4">
-                        <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] uppercase font-bold">Discord API</span>
-                        <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] uppercase font-bold">Automation</span>
+                <div class="bento-card p-10 flex flex-col justify-between bg-black text-white border-none">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-white/10 text-white flex items-center justify-center mb-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Cloud Persistence</h3>
+                        <p class="text-gray-400 text-sm mt-2">Integrasi Supabase memastikan data lisensi client tersimpan aman di PostgreSQL cloud.</p>
                     </div>
                 </div>
             </div>
@@ -102,11 +126,11 @@
 
     </main>
 
-    <footer class="max-w-6xl mx-auto px-6 py-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-slate-500 text-xs font-mono uppercase tracking-[0.5em]">NURKHOLIK &copy; 2026</p>
-        <div class="flex gap-8">
-            <a href="#" class="text-slate-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
-            <a href="#" class="text-slate-400 hover:text-white transition text-xl"><i class="fab fa-discord"></i></a>
+    <footer class="max-w-6xl mx-auto px-6 py-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-gray-400 text-[10px] font-bold uppercase tracking-[0.5em]">NURKHOLIK &copy; 2026</p>
+        <div class="flex gap-6">
+            <a href="#" class="text-gray-400 hover:text-black transition"><i class="fab fa-github"></i> github</a>
+            <a href="#" class="text-gray-400 hover:text-black transition"><i class="fab fa-linkedin"></i> linkedin</a>
         </div>
     </footer>
 
