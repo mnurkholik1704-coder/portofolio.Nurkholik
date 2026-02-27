@@ -9,11 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        body { background-color: #050810; color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #050810; color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         .font-heading { font-family: 'Space Grotesk', sans-serif; }
         .glass-card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 2rem; backdrop-filter: blur(10px); }
         .step-number { background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
         .line-flow { border-left: 2px dashed rgba(16, 185, 129, 0.3); margin-left: 20px; padding-left: 40px; }
+        .img-zoom { transition: transform 0.5s ease; cursor: pointer; }
+        .img-zoom:hover { transform: scale(1.02); }
     </style>
 </head>
 <body class="py-16">
@@ -24,37 +26,28 @@
         </a>
 
         <header class="mb-20">
-            <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-8 tracking-tighter">Technical <span class="text-emerald-500">Breakdown</span></h1>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold border border-emerald-500/20 uppercase tracking-widest">Case Study Detail</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-8 tracking-tighter">
+                Automated <span class="text-emerald-500">Transaction</span> Logic
+            </h1>
             <p class="text-slate-400 text-xl leading-relaxed max-w-3xl font-light">
-                Analisis mendalam mengenai arsitektur otomasi pembayaran lisensi script Roblox dan integrasi database cloud.
+                Membangun ekosistem otomasi yang menghubungkan Discord, Payment Gateway, dan Cloud Database untuk efisiensi bisnis 24/7.
             </p>
         </header>
 
         <section class="space-y-32">
             
-            <div class="glass-card border-l-4 border-emerald-500 bg-emerald-500/5">
-                <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-lightbulb mr-2 text-emerald-400"></i> The Core Challenge</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Sebelum sistem ini ada, proses pembelian lisensi dilakukan secara manual yang menyebabkan delay pengiriman, risiko human error, dan sistem yang tidak aktif 24/7. Saya membangun <strong>Motion Core</strong> untuk mengeliminasi campur tangan manusia dalam transaksi.
-                </p>
-            </div>
-
             <div class="line-flow relative">
                 <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div>
                         <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">01.</span> User Interaction</h3>
-                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
-                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
-                            <p class="text-slate-300 text-sm italic">"User sering bingung dengan format command teks bot yang kaku, menyebabkan banyak kesalahan input."</p>
-                        </div>
-                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
-                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
-                            <p class="text-slate-300 text-sm">Mengimplementasikan <strong>Discord String Select Menus</strong>. Pengguna hanya perlu memilih opsi tanpa mengetik, mengurangi <i>user friction</i> hingga 90%.</p>
-                        </div>
+                        <p class="text-slate-300 text-sm mb-6">Menggunakan Discord String Select Menus untuk menghilangkan kesalahan input manual dari pengguna.</p>
                     </div>
-                    <div class="glass-card p-2">
-                        <img src="assets/menu.png" class="rounded-xl w-full" alt="Menu Interaction">
+                    <div class="glass-card p-2 img-zoom">
+                        <img src="assets/menu.png" class="rounded-xl w-full shadow-2xl" alt="Menu Interaction">
                     </div>
                 </div>
             </div>
@@ -62,19 +55,12 @@
             <div class="line-flow relative">
                 <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
                 <div class="grid md:grid-cols-2 gap-12 items-start">
-                    <div class="glass-card p-2 order-2 md:order-1">
-                        <img src="assets/modal.png" class="rounded-xl w-full" alt="Modal Validation">
+                    <div class="glass-card p-2 img-zoom order-2 md:order-1">
+                        <img src="assets/qris.png" class="rounded-xl w-full shadow-2xl" alt="QRIS Automation">
                     </div>
                     <div class="order-1 md:order-2">
-                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">02.</span> Validation Logic</h3>
-                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
-                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
-                            <p class="text-slate-300 text-sm italic">"Username Roblox sering salah ketik, menyebabkan lisensi terdaftar ke akun yang tidak ada."</p>
-                        </div>
-                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
-                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
-                            <p class="text-slate-300 text-sm">Menggunakan <strong>Discord Modals</strong> untuk input data dan validasi asinkron agar database tetap bersih.</p>
-                        </div>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">02.</span> QRIS Automation</h3>
+                        <p class="text-slate-300 text-sm mb-6">Integrasi API untuk verifikasi pembayaran otomatis tanpa campur tangan admin.</p>
                     </div>
                 </div>
             </div>
@@ -83,18 +69,11 @@
                 <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">03.</span> QRIS & Settlement</h3>
-                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
-                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
-                            <p class="text-slate-300 text-sm italic">"Konfirmasi transfer manual sangat lambat, menghambat proses distribusi lisensi."</p>
-                        </div>
-                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
-                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
-                            <p class="text-slate-300 text-sm">Integrasi <strong>QRIS Dinamis</strong>. Begitu dana masuk, gateway mengirim sinyal ke bot untuk memproses lisensi instan.</p>
-                        </div>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">03.</span> Database Persistence</h3>
+                        <p class="text-slate-300 text-sm mb-6">Menyimpan data lisensi dan user secara aman di Supabase PostgreSQL.</p>
                     </div>
-                    <div class="glass-card p-2">
-                        <img src="assets/qris.png" class="rounded-xl w-full" alt="QRIS Automation">
+                    <div class="glass-card p-2 img-zoom">
+                        <img src="assets/database.png" class="rounded-xl w-full shadow-2xl" alt="Database Storage">
                     </div>
                 </div>
             </div>
@@ -102,18 +81,16 @@
             <div class="line-flow relative">
                 <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
                 <div class="grid md:grid-cols-2 gap-12 items-start">
-                    <div class="glass-card p-2 order-2 md:order-1">
-                        <img src="assets/database.png" class="rounded-xl w-full" alt="Supabase DB">
+                    <div class="glass-card p-2 img-zoom order-2 md:order-1">
+                        <img src="assets/dashboard.png" class="rounded-xl w-full shadow-2xl border border-white/10" alt="Admin Webhook Log">
                     </div>
                     <div class="order-1 md:order-2">
-                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">04.</span> Cloud Persistence</h3>
-                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
-                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
-                            <p class="text-slate-300 text-sm italic">"Data lisensi hilang jika bot restart karena hanya disimpan di memori lokal."</p>
-                        </div>
-                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
-                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
-                            <p class="text-slate-300 text-sm">Migrasi ke <strong>Supabase (PostgreSQL)</strong>. Data lisensi aman di cloud dan sinkron secara real-time.</p>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">04.</span> Admin Transparency</h3>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20 mb-6">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Internal Notification:</p>
+                            <p class="text-slate-300 text-sm">
+                                Bot melakukan webhook transaksi detail secara real-time ke panel admin untuk audit.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -123,13 +100,16 @@
                 <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">05.</span> Transparency</h3>
-                        <p class="text-slate-400 leading-relaxed mb-6">
-                            Dashboard monitoring memungkinkan admin melihat log transaksi secara real-time dan menangani anomali secara instan.
-                        </p>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">05.</span> Client Delivery</h3>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20 mb-6">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Final Output:</p>
+                            <p class="text-slate-300 text-sm">
+                                Pengiriman License Key, Expiration Date, dan Loadstring script langsung ke user secara privat.
+                            </p>
+                        </div>
                     </div>
-                    <div class="glass-card p-2">
-                        <img src="assets/dashboard.png" class="rounded-xl w-full" alt="Final Dashboard">
+                    <div class="glass-card p-2 img-zoom">
+                        <img src="assets/outputcus.png" class="rounded-xl w-full shadow-2xl border border-white/10" alt="Output Client">
                     </div>
                 </div>
             </div>
@@ -137,7 +117,7 @@
         </section>
 
         <footer class="mt-32 pt-16 border-t border-white/5 text-center">
-            <p class="text-slate-600 font-mono text-xs uppercase tracking-[0.5em]">NURKHOLIK &copy; 2026</p>
+            <p class="text-slate-600 font-mono text-[10px] uppercase tracking-[0.5em]">Muhammad Nurkholik &copy; 2026</p>
         </footer>
     </div>
 
