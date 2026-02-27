@@ -3,84 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proses Kerja | Motion Core System</title>
+    <title>Studi Kasus | Motion Core System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { background-color: #ffffff; color: #334155; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; }
-        .section-card { background: #f8f9fa; border: 1px solid #f1f5f9; border-radius: 24px; padding: 2rem; margin-bottom: 2rem; }
-        .badge { background: #ecfdf5; color: #059669; padding: 0.25rem 0.75rem; rounded-full; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
-        /* Fix untuk foto agar tidak terpotong */
-        .img-container img { width: 100%; height: auto; display: block; border-radius: 16px; }
+        body { background-color: #ffffff; color: #334155; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.7; }
+        .img-box { background: #f8f9fa; border: 1px solid #f1f5f9; border-radius: 24px; padding: 12px; }
+        .img-box img { width: 100%; height: auto; border-radius: 16px; display: block; }
+        .step-number { background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 2rem; }
+        .line-flow { border-left: 2px dashed rgba(16, 185, 129, 0.2); margin-left: 20px; padding-left: 40px; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="max-w-4xl mx-auto px-6 py-8">
-        <a href="index.html" class="text-emerald-600 font-bold hover:underline transition">
-            <i class="fas fa-arrow-left mr-2"></i> Kembali ke Portfolio
+    <nav class="max-w-5xl mx-auto px-6 py-10">
+        <a href="index.html" class="text-emerald-600 font-bold flex items-center gap-2">
+            <i class="fas fa-arrow-left"></i> Kembali ke Portfolio
         </a>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 pb-24">
+    <main class="max-w-5xl mx-auto px-6 pb-24">
         
-        <header class="mb-16">
-            <span class="badge">Studi Kasus</span>
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">Motion Core: Automasi Pembayaran & Lisensi</h1>
-            <p class="text-lg text-slate-500">Membangun sistem yang menghubungkan Discord dengan gateway pembayaran untuk efisiensi transaksi 24/7.</p>
+        <header class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Ceritakan Proses dan Hasil Akhir</h1>
+            <p class="text-lg text-slate-500 max-w-3xl">Meskipun hasil adalah bagian terpenting, menjelaskan proses di balik layar adalah cara saya menunjukkan kemampuan <i>problem-solving</i>.</p>
         </header>
 
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">1. Apa masalah yang ingin diselesaikan?</h2>
-            <p class="mb-6">Awalnya, proses pembelian lisensi dilakukan secara manual yang memakan waktu dan sering terjadi kesalahan input data. Saya ingin membangun sistem di mana user bisa beli, bayar, dan dapat lisensi secara instan tanpa perlu menunggu admin online.</p>
-            <div class="img-container shadow-sm">
-                <img src="assets/menu.png" alt="Tampilan Menu Discord">
-            </div>
-        </section>
-
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">2. Kenapa memilih teknologi tertentu?</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+        <section class="space-y-16 mb-32">
+            <div class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <ul class="space-y-4">
-                        <li><strong>Discord API:</strong> Karena komunitas target menggunakan Discord, saya menggunakan *Select Menus* agar user tidak perlu mengetik perintah manual.</li>
-                        <li><strong>Supabase:</strong> Saya memilihnya sebagai database karena sangat cepat untuk menyimpan data lisensi secara cloud.</li>
-                        <li><strong>QRIS Gateway:</strong> Agar pembayaran bisa diverifikasi otomatis oleh bot dalam hitungan detik.</li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 underline decoration-emerald-500">Apa masalah yang ingin diselesaikan?</h3>
+                    <p class="text-sm text-slate-500">Awalnya proses pembelian lisensi dilakukan manual yang memakan waktu lama. Saya ingin membangun sistem 24/7 di mana user bisa beli dan dapat lisensi secara instan tanpa menunggu admin.</p>
                 </div>
-                <div class="img-container">
-                    <img src="assets/database.png" alt="Struktur Database">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 underline decoration-emerald-500">Kenapa memilih teknologi tertentu?</h3>
+                    <p class="text-sm text-slate-500">Saya menggunakan <b>Supabase</b> karena butuh database cloud yang stabil, dan <b>Discord API</b> karena interaksinya sangat mudah bagi pengguna target.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 underline decoration-emerald-500">Tantangan & Solusi</h3>
+                    <p class="text-sm text-slate-500">Tantangan terbesar adalah verifikasi pembayaran otomatis. Saya mengatasinya dengan integrasi <i>Webhook</i> agar bot tahu tepat saat uang masuk.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 underline decoration-emerald-500">Perbaikan ke Depan</h3>
+                    <p class="text-sm text-slate-500">Saya berencana menambahkan fitur notifikasi kadaluarsa lisensi otomatis agar pengguna tahu kapan harus memperpanjang.</p>
                 </div>
             </div>
         </section>
 
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">3. Tantangan dan bagaimana mengatasinya?</h2>
-            <div class="section-card">
-                <p class="font-bold text-slate-900 mb-2">Tantangan: Verifikasi Real-time</p>
-                <p class="text-sm">Tantangan terbesar adalah memastikan bot tahu kapan user sudah bayar. Saya mengatasinya dengan mengintegrasikan sistem *webhook* yang memberi sinyal ke bot segera setelah transaksi sukses, lalu bot otomatis mengirimkan data ke user.</p>
-            </div>
-            <div class="img-container">
-                <img src="assets/dashboard.png" alt="Panel Admin">
-            </div>
-        </section>
+        <hr class="border-slate-100 mb-32">
 
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">4. Hasil Akhir & Pengembangan Ke Depan</h2>
-            <p class="mb-6">Sistem sekarang sudah bisa mengelola ratusan lisensi secara otomatis. User mendapatkan pengalaman beli yang mulus, dan admin bisa memantau semuanya lewat *License Registry*.</p>
-            
-            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                <p class="font-bold text-blue-900 mb-2 italic">"Jika diberi waktu lebih..."</p>
-                <p class="text-sm text-blue-800">Saya ingin menambahkan fitur pengingat otomatis via DM Discord 3 hari sebelum lisensi user berakhir, serta statistik penjualan dalam bentuk grafik di dashboard admin.</p>
+        <h2 class="text-3xl font-bold text-slate-900 mb-16 text-center">Technical Step-by-Step</h2>
+
+        <div class="space-y-32">
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">01.</span> User Interface</h3>
+                        <p class="text-slate-500 text-sm">Implementasi Discord Select Menus untuk memilih paket durasi lisensi dengan mudah.</p>
+                    </div>
+                    <div class="img-box"><img src="assets/menu.png" alt="Menu Interface"></div>
+                </div>
             </div>
-        </section>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="img-box order-2 md:order-1"><img src="assets/database.png" alt="Database"></div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">02.</span> Cloud Registry</h3>
+                        <p class="text-slate-500 text-sm">Penyimpanan data lisensi dan HWID user di database Supabase yang aman.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">03.</span> License Registry</h3>
+                        <p class="text-slate-500 text-sm">Panel manajemen untuk admin memantau status aktif, durasi, hingga melakukan 'Ban' user.</p>
+                    </div>
+                    <div class="img-box"><img src="assets/dashboard.png" alt="Dashboard Admin"></div>
+                </div>
+            </div>
+
+            <div class="line-flow relative border-none">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-white shadow-sm"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="img-box order-2 md:order-1"><img src="assets/outputcus.png" alt="Output Client"></div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4"><span class="step-number">04.</span> Automated Delivery</h3>
+                        <p class="text-slate-500 text-sm">Bot otomatis mengirimkan kunci lisensi dan script via DM setelah pembayaran sukses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
-    <footer class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-100 text-center text-slate-400 text-xs">
-        <p>&copy; 2026 Muhammad Nurkholik</p>
+    <footer class="py-12 border-t border-slate-50 text-center text-slate-400 text-xs">
+        <p>Muhammad Nurkholik &copy; 2026</p>
     </footer>
 
 </body>
