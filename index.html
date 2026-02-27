@@ -3,56 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurkholik | Engineering Portfolio</title>
+    <title>Technical Breakdown | Motion Core Ecosystem</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { background-color: #050810; color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; }
-        .glass { background: rgba(10, 16, 31, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .card-gradient { background: linear-gradient(145deg, rgba(15, 23, 42, 0.4), rgba(2, 6, 23, 0.8)); border: 1px solid rgba(255, 255, 255, 0.05); }
+        body { background-color: #050810; color: #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        .glass-card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 2rem; backdrop-filter: blur(10px); }
+        .step-number { background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+        .line-flow { border-left: 2px dashed rgba(16, 185, 129, 0.3); margin-left: 20px; padding-left: 40px; }
+        .img-zoom { transition: transform 0.5s ease; cursor: pointer; }
+        .img-zoom:hover { transform: scale(1.02); }
     </style>
 </head>
-<body>
-    <nav class="fixed top-0 w-full z-50 py-6 px-10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-8 py-4">
-            <span class="text-xl font-bold text-white uppercase tracking-tighter">NUR<span class="text-emerald-500">KHOLIK</span></span>
-            <div class="flex gap-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <a href="#home" class="hover:text-emerald-400">Home</a>
-                <a href="#projects" class="hover:text-emerald-400">Work</a>
-            </div>
-        </div>
-    </nav>
+<body class="py-16">
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-        <h2 class="text-emerald-500 text-xs tracking-[0.5em] uppercase mb-4">Portfolio 2026</h2>
-        <h1 class="text-6xl md:text-8xl font-bold text-white mb-6">MUHAMMAD<br>NURKHOLIK</h1>
-        <p class="text-slate-400 max-w-xl text-lg font-light leading-relaxed">Automation Architect & Backend Engineer. Mengubah logika kompleks menjadi efisiensi sistem.</p>
-    </section>
-
-    <section id="projects" class="py-20 px-10 max-w-6xl mx-auto">
-        <h3 class="text-emerald-500 font-mono text-sm mb-12 uppercase tracking-widest">// Selected Project</h3>
-        
-        <a href="project-detail.html" class="group block card-gradient rounded-[2.5rem] overflow-hidden transition-all hover:border-emerald-500/50">
-            <div class="grid md:grid-cols-2 items-center">
-                <div class="p-12">
-                    <div class="flex gap-2 mb-6">
-                        <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full font-bold">DISCORD BOT</span>
-                        <span class="text-[9px] bg-white/5 text-slate-400 px-3 py-1 rounded-full font-bold">SUPABASE</span>
-                    </div>
-                    <h3 class="text-4xl font-bold text-white mb-4 group-hover:text-emerald-400 transition">Motion Core Ecosystem</h3>
-                    <p class="text-slate-400 mb-8 leading-relaxed">Sistem pembelian otomatis lisensi script Roblox terintegrasi QRIS.</p>
-                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Click to view breakdown →</span>
-                </div>
-                <div class="h-full bg-slate-900">
-                    <img src="assets/dashboard.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700" alt="Thumbnail">
-                </div>
-            </div>
+    <div class="max-w-5xl mx-auto px-6">
+        <a href="index.html" class="inline-flex items-center text-emerald-500 hover:text-white transition-all mb-12 group font-bold text-sm tracking-widest uppercase">
+            <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-2 transition-transform"></i> Back to Portfolio
         </a>
-    </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <p class="text-[10px] text-slate-600 tracking-[0.8em] uppercase">OWNED BY NURKHOLIK © 2026</p>
-    </footer>
+        <header class="mb-20">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold border border-emerald-500/20 uppercase tracking-widest">Technical Deep Dive</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-8 tracking-tighter">
+                Full System <span class="text-emerald-500">Automation</span>
+            </h1>
+            <p class="text-slate-400 text-xl leading-relaxed max-w-3xl font-light">
+                Analisis teknis bagaimana sistem Motion Core mengelola siklus hidup transaksi dari interaksi awal pengguna hingga pengiriman produk akhir.
+            </p>
+        </header>
+
+        <section class="space-y-32">
+            
+            <div class="glass-card border-l-4 border-emerald-500 bg-emerald-500/5">
+                <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-lightbulb mr-2 text-emerald-400"></i> The Core Challenge</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Sistem ini dibangun untuk menghapus ketergantungan pada admin manual, memastikan layanan berjalan 24/7, dan mengamankan data transaksi menggunakan integrasi cloud.
+                </p>
+            </div>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">01.</span> User Interaction</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
+                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
+                            <p class="text-slate-300 text-sm italic">User sering salah format saat menggunakan command teks manual.</p>
+                        </div>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
+                            <p class="text-slate-300 text-sm">Implementasi <strong>String Select Menus</strong> untuk pilihan paket yang instan dan bebas error.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-2 img-zoom">
+                        <img src="assets/menu.png" class="rounded-xl w-full shadow-2xl" alt="Menu Interface">
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="glass-card p-2 img-zoom order-2 md:order-1">
+                        <img src="assets/modal.png" class="rounded-xl w-full shadow-2xl" alt="Input Modal">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">02.</span> Validation Logic</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
+                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
+                            <p class="text-slate-300 text-sm italic">Resiko typo pada username Roblox yang berakibat fatal pada lisensi.</p>
+                        </div>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
+                            <p class="text-slate-300 text-sm">Menggunakan <strong>Discord Modals</strong> untuk pengumpulan data yang terstruktur dan tervalidasi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">03.</span> QRIS Automation</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
+                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
+                            <p class="text-slate-300 text-sm italic">Verifikasi transfer manual menghambat kecepatan layanan.</p>
+                        </div>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
+                            <p class="text-slate-300 text-sm">Integrasi <strong>QRIS Gateway</strong> dengan sistem callback otomatis untuk verifikasi pembayaran real-time.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-2 img-zoom">
+                        <img src="assets/qris.png" class="rounded-xl w-full shadow-2xl" alt="Payment System">
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="glass-card p-2 img-zoom order-2 md:order-1">
+                        <img src="assets/database.png" class="rounded-xl w-full shadow-2xl" alt="Supabase Data">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">04.</span> Cloud Storage</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-2xl mb-6 border border-white/5">
+                            <p class="text-rose-400 text-xs font-bold uppercase mb-2">Problem:</p>
+                            <p class="text-slate-300 text-sm italic">Penyimpanan data lokal rentan hilang jika server bot mengalami crash.</p>
+                        </div>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Solution:</p>
+                            <p class="text-slate-300 text-sm">Sinkronisasi data ke <strong>Supabase PostgreSQL</strong> untuk persistensi data yang aman dan terukur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-flow relative">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">05.</span> Admin Transparency</h3>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20 mb-6">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">System Update:</p>
+                            <p class="text-slate-300 text-sm italic">"Bot melakukan webhook transaksi detail ke panel admin secara otomatis."</p>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Setiap transaksi yang berhasil akan memicu webhook yang mengirimkan log detail ke channel admin, memastikan transparansi penuh.
+                        </p>
+                    </div>
+                    <div class="glass-card p-2 img-zoom">
+                        <img src="assets/dashboard.png" class="rounded-xl w-full shadow-2xl" alt="Admin Log Webhook">
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-flow relative border-none">
+                <span class="absolute -left-[14px] top-0 w-7 h-7 bg-emerald-500 rounded-full border-4 border-[#050810]"></span>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="glass-card p-2 img-zoom order-2 md:order-1">
+                        <img src="assets/outputcus.png" class="rounded-xl w-full shadow-2xl" alt="Client Output">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4"><span class="step-number text-4xl">06.</span> Client Delivery</h3>
+                        <div class="bg-emerald-500/10 p-6 rounded-2xl border border-emerald-500/20">
+                            <p class="text-emerald-400 text-xs font-bold uppercase mb-2">Output:</p>
+                            <p class="text-slate-300 text-sm">Pengiriman instan berupa License Key, Tanggal Expired, Loadstring Script, dan Tutorial langsung ke pengguna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="mt-32 pt-16 border-t border-white/5 text-center text-slate-600 font-mono text-xs uppercase tracking-[0.5em]">
+            Muhammad Nurkholik &copy; 2026
+        </footer>
+    </div>
+
 </body>
 </html>
