@@ -3,172 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M Nurkholik | Junior Dev Portofolio</title>
+    <title>M Nurkholik | Junior Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        body { 
-            background-color: #ffffff; 
-            color: #334155; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            scroll-behavior: smooth;
-        }
-
-        /* Foto Kotak Modern - Anti Kepala Terpotong */
-        .photo-wrap {
-            position: relative;
-            display: inline-block;
-        }
-
-        .photo-nurkholik {
-            border-radius: 32px; 
-            object-fit: cover;
+        body { background-color: #ffffff; color: #1e293b; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        
+        .hero-photo {
+            border-radius: 24px;
             width: 100%;
-            max-width: 480px; 
+            max-width: 300px; /* Ukuran diperkecil agar proporsional */
             height: auto;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease;
         }
+        .hero-photo:hover { transform: translateY(-8px); }
 
-        .photo-nurkholik:hover {
-            transform: scale(1.02);
-            box-shadow: 0 30px 60px -12px rgba(16, 185, 129, 0.15);
-        }
-
-        /* Badge Skill ala Dev */
-        .skill-tag {
-            background: #f8fafc;
-            padding: 0.6rem 1.2rem;
-            border-radius: 14px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #64748b;
-            border: 1px solid #f1f5f9;
-            transition: 0.3s;
-        }
-
-        .skill-tag:hover {
-            border-color: #10b981;
-            color: #10b981;
-            background: #f0fdf4;
-        }
-
-        /* Card Kontak */
-        .contact-box {
+        .card-embed {
             background: #ffffff;
             border: 1px solid #f1f5f9;
-            border-radius: 24px;
-            padding: 24px;
-            transition: 0.3s;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .card-embed:hover {
+            border-color: #10b981;
+            box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.1);
+            transform: translateY(-4px);
         }
 
-        .contact-box:hover {
-            border-color: #10b981;
-            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.1);
-            transform: translateY(-4px);
+        .skill-badge {
+            background: #f8fafc;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #64748b;
+            border: 1px solid #f1f5f9;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="max-w-6xl mx-auto px-6 py-10 flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-tight text-slate-900">
-            M Nurkholik<span class="text-emerald-500">.</span>
-        </div>
-        <div class="flex gap-6 md:gap-10 text-sm font-semibold text-slate-500">
-            <a href="project-1.html" class="hover:text-emerald-600 transition">Studi Kasus</a>
-            <a href="#kontak" class="hover:text-emerald-600 transition">Kontak</a>
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tighter text-emerald-600">M NURKHOLIK.</div>
+            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#beranda" class="hover:text-emerald-600 transition">Beranda</a>
+                <a href="#tentang" class="hover:text-emerald-600 transition">Tentang</a>
+                <a href="#portfolio" class="hover:text-emerald-600 transition">Portofolio</a>
+                <a href="#pendidikan" class="hover:text-emerald-600 transition">Pendidikan</a>
+                <a href="#pengalaman" class="hover:text-emerald-600 transition">Pengalaman</a>
+                <a href="#kontak" class="hover:text-emerald-600 transition">Kontak</a>
+            </div>
         </div>
     </nav>
 
-    <section class="max-w-6xl mx-auto px-6 py-12 md:py-20">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            
-            <div class="order-2 md:order-1">
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full mb-6">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    OPEN TO PROJECTS
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                    Halo, Saya M Nurkholik. <br>
-                    <span class="text-slate-400 font-medium text-4xl">Suka ngulik otomasi & backend.</span>
+    <section id="beranda" class="pt-44 pb-24 max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full uppercase tracking-widest mb-6 inline-block">
+                    Informatics Student
+                </span>
+                <h1 class="text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                    Membangun Solusi Digital Lewat <span class="text-emerald-500">Kode.</span>
                 </h1>
-                
-                <p class="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg">
-                    Lagi fokus belajar gimana caranya bikin sistem yang bisa bantu kerjaan jadi lebih praktis. Dari bot Discord sampe database cloud, semuanya saya pelajari satu-satu.
+                <p class="text-md text-slate-500 leading-relaxed mb-10 max-w-md">
+                    Mahasiswa Informatika semester 6 yang fokus pada efisiensi sistem dan pengembangan perangkat lunak berbasis cloud.
                 </p>
-
-                <div class="flex flex-wrap gap-3 mb-12">
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Discord API</span>
-                    <span class="skill-tag">Supabase</span>
-                    <span class="skill-tag">Tailwind CSS</span>
-                </div>
-
                 <div class="flex gap-4">
-                    <a href="project-1.html" class="bg-emerald-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-100">
-                        Cek Proyek Terbaru
-                    </a>
+                    <a href="#portfolio" class="bg-slate-900 text-white px-8 py-3.5 rounded-xl font-bold text-xs hover:bg-emerald-600 transition-all">Lihat Project</a>
                 </div>
             </div>
+            <div class="flex justify-center">
+                <img src="assets-project-1/profile.png" alt="Nurkholik" class="hero-photo">
+            </div>
+        </div>
+    </section>
 
-            <div class="order-1 md:order-2 text-center">
-                <div class="photo-wrap">
-                    <img src="assets-project-1/profile.png" alt="Muhammad Nurkholik" class="photo-nurkholik">
+    <section id="tentang" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-6">Tentang Saya</h2>
+                <p class="text-slate-500 text-md leading-relaxed mb-8">
+                    Saya adalah individu dengan etos kerja tinggi, berpengalaman di sektor operasional logistik hingga perbankan. Saat ini, saya mengintegrasikan pengalaman lapangan tersebut dengan keahlian IT untuk menciptakan solusi digital yang praktis.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge">Problem Solving</span>
+                    <span class="skill-badge">Web Development</span>
+                    <span class="skill-badge">Inventory Control</span>
+                    <span class="skill-badge">Data Analysis</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 max-w-6xl mx-auto px-6">
+        <h2 class="text-2xl font-extrabold text-slate-900 mb-10">Portofolio Utama</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="project-1.html" class="card-embed p-8 group">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-lg">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <i class="fas fa-arrow-right text-slate-300 group-hover:text-emerald-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Motion Core System</h3>
+                <p class="text-slate-400 text-sm mb-4">Sistem otomasi pembayaran dan lisensi berbasis Discord API.</p>
+                <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">VIEW CASE STUDY</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="pendidikan" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-extrabold mb-12">Pendidikan</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
+                    <h4 class="text-lg font-bold mb-1">Universitas Muhammadiyah Kota Tangerang</h4>
+                    <p class="text-emerald-400 text-sm mb-4">S1 Informatika - Semester 6</p>
+                    <p class="text-xs text-slate-400">IP Semester Terakhir: <span class="text-white font-bold text-lg">3.9</span></p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
+                    <h4 class="text-lg font-bold mb-1">SMA Islamic Centre Kota Tangerang</h4>
+                    <p class="text-slate-400 text-sm">Lulusan Sekolah Menengah Atas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pengalaman" class="py-24 max-w-6xl mx-auto px-6">
+        <h2 class="text-2xl font-extrabold text-slate-900 mb-10">Pengalaman</h2>
+        <div class="grid md:grid-cols-1 gap-4">
+            
+            <div class="card-embed p-6 flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-sm font-bold text-blue-800">BM</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">PT BANK MANDIRI Tbk.</h4>
+                        <p class="text-xs text-emerald-600 font-semibold uppercase">Teller</p>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">2023 - 2024</span>
+            </div>
+
+            <div class="card-embed p-6 flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-sm font-bold text-red-600">ID</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">PT INDOMARCO PRISMATA Tbk.</h4>
+                        <p class="text-xs text-emerald-600 font-semibold uppercase">Inventory Control</p>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">2022 - 2023</span>
+            </div>
+
+            <div class="card-embed p-6 flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-sm font-bold text-orange-600">SP</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">PT Shopee Express</h4>
+                        <p class="text-xs text-emerald-600 font-semibold uppercase">Warehouse Operational</p>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400">2022</span>
             </div>
 
         </div>
     </section>
 
-    <section id="kontak" class="max-w-6xl mx-auto px-6 py-24 border-t border-slate-100">
-        <div class="mb-12">
-            <h2 class="text-3xl font-bold text-slate-900 mb-2">Yuk, Ngobrol!</h2>
-            <p class="text-slate-500">Buka peluang kolaborasi atau sekedar tanya-tanya soal project.</p>
+    <footer id="kontak" class="bg-slate-50 py-20 border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-extrabold text-slate-900 mb-8">Hubungi Saya</h2>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="https://wa.me/628XXXXXXXXXX" class="text-xl text-slate-400 hover:text-emerald-500 transition"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/nurkholik_1704" class="text-xl text-slate-400 hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:nurkholik@example.com" class="text-xl text-slate-400 hover:text-blue-500 transition"><i class="far fa-envelope"></i></a>
+            </div>
+            <p class="text-slate-400 text-[9px] uppercase font-bold tracking-[0.2em]">© 2026 Muhammad Nurkholik — Junior Dev Portfolio</p>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            <a href="https://wa.me/6285695146206" target="_blank" class="contact-box flex flex-col gap-4">
-                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-900">WhatsApp</h4>
-                    <p class="text-sm text-slate-500">Silahkan bertanya disini.</p>
-                </div>
-            </a>
-
-            <a href="https://instagram.com/nurkholik_1704" target="_blank" class="contact-box flex flex-col gap-4">
-                <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center text-xl">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-900">Instagram</h4>
-                    <p class="text-sm text-slate-500">@nurkholik_1704</p>
-                </div>
-            </a>
-
-            <a href="mailto:M.Nurkholik1704@gmail.com" class="contact-box flex flex-col gap-4">
-                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl">
-                    <i class="far fa-envelope"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-900">Email</h4>
-                    <p class="text-sm text-slate-500">M.Nurkholik1704@gmail.com</p>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center">
-        <p class="text-slate-400 text-xs font-medium uppercase tracking-widest">© 2026 Muhammad Nurkholik.</p>
     </footer>
 
 </body>
